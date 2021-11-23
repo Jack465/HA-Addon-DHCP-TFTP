@@ -1,0 +1,57 @@
+{
+  "name": "DHCP server - TFTP Edit",
+  "version": "1",
+  "slug": "tftp_dhcp_server",
+  "description": "A modified version of the Home Assistant Simple DHCP Server that provides Option 66 and 150 (TFTP)",
+  "url": "https://jackscott.xyz",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "advanced": true,
+  "startup": "system",
+  "host_network": true,
+  "options": {
+    "default_lease": 86400,
+    "max_lease": 172800,
+    "domain": null,
+    "dns": ["8.8.8.8", "8.8.4.4"],
+    "networks": [
+      {
+        "subnet": "192.168.1.0",
+        "netmask": "255.255.255.0",
+        "range_start": "192.168.1.100",
+        "range_end": "192.168.1.200",
+        "broadcast": "192.168.1.255",
+        "gateway": "192.168.1.1",
+        "interface": "eth0",
+        "ciscotftp": "192.168.1.2",
+        "nextserver": "192.168.1.2"
+      }
+    ],
+    "hosts": []
+  },
+  "schema": {
+    "default_lease": "int",
+    "max_lease": "int",
+    "domain": "str",
+    "dns": ["str"],
+    "networks": [
+      {
+        "subnet": "str",
+        "netmask": "str",
+        "range_start": "str",
+        "range_end": "str",
+        "broadcast": "str",
+        "gateway": "str",
+        "interface": "str",
+        "ciscotftp": "str",
+        "nextserver": "str"
+      }
+    ],
+    "hosts": [
+      {
+        "mac": "str",
+        "name": "str",
+        "ip": "str"
+      }
+    ]
+  }
+}
